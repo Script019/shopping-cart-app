@@ -1,0 +1,31 @@
+.product-list {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .product-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    width: 200px;
+  }
+  
+  .product-card h3 {
+    margin: 0 0 10px;
+  }
+  
+  .product-card button {
+    background-color: #5c6bc0;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .product-card button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+  }
+  
