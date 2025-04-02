@@ -1,14 +1,13 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import products from "../data/products";
-import "./ProductList.css";
 
-function ProductList() {
+const ProductList = () => {
   const { addToCart } = useContext(CartContext);
 
   return (
-    <div className="product-list">
-      <h2>Products</h2>
+    <div>
+      <h2>Available Products</h2>
       {products.map(product => (
         <div key={product.id} className="product-card">
           <h3>{product.name}</h3>
@@ -18,6 +17,6 @@ function ProductList() {
       ))}
     </div>
   );
-}
+};
 
 export default ProductList;
