@@ -1,4 +1,5 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useReducer, useEffect } from "react";
+import useLocalStorage from "../hooks/useLocalStorage"; // Adjust path if needed
 
 export const CartContext = createContext();
 
@@ -60,7 +61,14 @@ function cartReducer(state, action) {
 }
 
 export const CartProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(cartReducer, initialState);
+  // Load and persist cartItems using the custom hook
+  const [storedCart, setStoredCart] = useLocalStorage("cartItems", []);
+  const [state, dispatch] = useReducer(cartReducer, { cartItems: storedCart });
+
+  // Save updated cartItems to localStorage when state changes
+  useEffect(() => {
+    setStoredCart(state.cartItems);
+  }, [state.cartItems]);
 
   const addToCart = item => dispatch({ type: "ADD_ITEM", payload: item });
   const removeFromCart = id => dispatch({ type: "REMOVE_ITEM", payload: id });

@@ -2,7 +2,7 @@ import React from "react";
 import ProductList from "./components/ProductList";
 import Cart from "./components/Cart";
 import { CartProvider } from "./context/CartContext";
-import "./index.css"; // Optional, for styling
+import "./index.css"; 
 
 function App() {
   return (
